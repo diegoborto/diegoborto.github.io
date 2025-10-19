@@ -31,6 +31,24 @@ a:visited {
   text-decoration: none;
 }
 
+.gallery {
+  display: flex;
+  justify-content: center;  /* Centra il gruppo orizzontalmente */
+  align-items: center;
+  gap: 10px;                /* Spazio tra immagini */
+  overflow-x: auto;         /* Permette lo scroll orizzontale se serve */
+  flex-wrap: nowrap;        /* Evita l’andare a capo */
+}
+
+.gallery img {
+  flex: 1;                  /* Tutte le immagini occupano spazio proporzionale */
+  max-width: 25%;           /* Quattro immagini = 25% ciascuna */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;        /* Ritaglia bene se l'immagine ha proporzioni strane */
+}
+
+
 /* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
