@@ -60,7 +60,8 @@ section::after {
 
 footer {
   background-color: #777;
-  padding: 7px;
+  padding: 3px;
+  font-size: 3px;
   text-align: center;
   color: white;
 }
