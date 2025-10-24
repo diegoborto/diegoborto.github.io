@@ -89,6 +89,10 @@ footer {
   text-align: center;
   color: black;
 }
+map {
+  height: 50vh;
+  width: 40%;
+  }
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
@@ -96,4 +100,7 @@ footer {
     width: 100%;
     height: auto;
   }
+ map {
+   width: 100%
+ }
 }
