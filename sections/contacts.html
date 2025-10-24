@@ -8,56 +8,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
       /* Rules for icon sizes: */
       .material-icons.md-18 { font-size: 18px; }
       .material-icons.md-24 { font-size: 24px; } /* Default */
       .material-icons.md-36 { font-size: 36px; }
       .material-icons.md-48 { font-size: 48px; }
+      #map {
+      height: 95vh;
+      width: 100%;
+      }
     </style>
     
-      <!-- Openstreet map -->
-      <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-      <script type="text/javascript">
-      	
-      // Posizione iniziale della mappa
-          var lat=44.355;
-          var lon=11.71;
-          var zoom=13;
-      		
-          function init() {
-       
-              map = new OpenLayers.Map ("map", {
-                  controls:[ 
-      			new OpenLayers.Control.Navigation(),
-                             new OpenLayers.Control.PanZoomBar(),
-                             new OpenLayers.Control.ScaleLine(),
-                             new OpenLayers.Control.Permalink('permalink'),
-                             new OpenLayers.Control.MousePosition(),                    
-                             new OpenLayers.Control.Attribution()
-      				      ],
-                  projection: new OpenLayers.Projection("EPSG:900913"),
-                  displayProjection: new OpenLayers.Projection("EPSG:4326")
-                  } );
-       
-      		var mapnik = new OpenLayers.Layer.OSM("OpenStreetMap (Mapnik)");
-      		
-      		map.addLayer(mapnik);
-       
-              var lonLat = new OpenLayers.LonLat( lon ,lat )
-                .transform(
-                  new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                  map.getProjectionObject() // to Spherical Mercator Projection
-                );
-      			  
-      		map.setCenter (lonLat, zoom);
-       
-       }
-       
-      </script>
-  </head>
+  
 
-<body onload="init();">
+<body>
 <header>
   <!-- <h2><mark><i class="material-icons md-24">contact_mail</i> Contact me:</mark></h2> -->
   <h2><i class="material-icons md-24">contact_mail</i> Contact me:</h2>
@@ -79,9 +46,15 @@
         <i class="material-icons md-18">email</i> Or send me an <a href="mailto:bortolin.diego@gmail.com"><b>Email</b></a>.</p>
       <p><i class="material-icons md-18">directions_bike</i> If you're curious, this is my <a href="https://www.instagram.com/cyclewithdiego/"><b>Instagram page </b></a>dedicated to my sport activities.</p>
       <p><i class="material-icons md-18">location_on</i>I'm from Trieste, Italy. Currently I'm based in Ivrea, Italy.</p>
-   </article>
-    <!-- Openstreet map -->  
-    <div style="width:40%; height:50%" id="map"></div> 
+  <!-- Openstreet maps -->
+  <div id="map"></div>
+  <script>
+    var map = L.map('map').setView([44.355, 11.71], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+  </script>
+  </article>
 </section>
 
 <footer>
